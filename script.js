@@ -14,8 +14,8 @@ const xpText = document.querySelector("#xpText");
 const healthText = document.querySelector("#healthText");
 const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
-const monsterNameText = document.querySelector("#monsterNameText");
-const monsterHealthText = document.querySelector("#monsterHealthText");
+const monsterNameText = document.querySelector("#monsterName");
+const monsterHealthText = document.querySelector("#monsterHealth");
 
 const weapons = [
   {
@@ -33,26 +33,25 @@ const weapons = [
   {
     name: "sword",
     power: 100,
-  }
+  },
 ];
-
 
 const monsters = [
   {
     name: "slime",
     level: 2,
-    health: 15
+    health: 15,
   },
   {
     name: "fanged beast",
     level: 8,
-    health: 60
+    health: 60,
   },
   {
     name: "dragon",
     level: 20,
-    health: 300
-  }
+    health: 300,
+  },
 ];
 
 const locations = [
@@ -68,24 +67,24 @@ const locations = [
     "button text": [
       "Buy 10 health (10 gold)",
       "Buy weapon (30 gold)",
-      "Go to town square"
+      "Go to town square",
     ],
     "button functions": [buyHealth, buyWeapon, goTown],
-    text: "You enter the Store."
+    text: "You enter the Store.",
   },
 
   {
     name: "Cave",
     "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
     "button functions": [fightSlime, fightBeast, goTown],
-    text: "You enter the Cave, you see some monsters"
+    text: "You enter the Cave, you see some monsters",
   },
 
   {
     name: "Fight",
     "button text": ["Attack", "Dodge", "Run"],
     "button functions": [attack, dodge, goTown],
-    text: "You are fighting a monster."
+    text: "You are fighting a monster.",
   },
 
   {
@@ -93,24 +92,24 @@ const locations = [
     "button text": [
       "Go to town square",
       "Go to town square",
-      "Go to town square"
+      "Go to town square",
     ],
     "button functions": [goTown, goTown, goTown],
-    text: "The monster screams 'arg!' as it dies, you gain experience points and find gold."
+    text: "The monster screams 'arg!' as it dies, you gain experience points and find gold.",
   },
 
   {
     name: "Lose",
     "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
     "button functions": [restart, restart, restart],
-    text: "You die! 💀"
+    text: "You die! 💀",
   },
 
   {
     name: "Win",
     "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
     "button functions": [restart, restart, restart],
-    text: "You win ! 🥳"
+    text: "You win ! 🥳",
   },
 ];
 
@@ -203,6 +202,7 @@ function fightDragon() {
 function goFight() {
   update(locations[3]);
   monsterHealth = monsters[fighting].health;
+  console.log(monsterHealth);
   monsterStats.style.display = "block";
   monsterNameText.innerText = monsters[fighting].name;
   monsterHealthText.innerText = monsterHealth;
