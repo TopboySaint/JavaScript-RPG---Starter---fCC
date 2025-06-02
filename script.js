@@ -211,7 +211,7 @@ function goFight() {
 function attack() {
   text.innerText += `The ${monsters[fighting].name} attacks`;
   text.innerText += `You attack with ${weapons[currentWeapon].name}.`;
-  health -= monsters[fighting].level;
+  health -= getMonsterAttackValue(monsters[fighting].level);
   monsterHealth -=
     weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
   healthText.innerText = health;
@@ -223,6 +223,12 @@ function attack() {
     fighting === 2 ? winGame() : defeatMonster();
   }
 }
+
+
+function getMonsterAttackValue(){
+
+}
+
 
 function dodge() {
   text.innerText += `You dodged the attack from ${monsters[fighting].name}.`;
